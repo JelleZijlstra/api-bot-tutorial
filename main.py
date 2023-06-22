@@ -33,7 +33,7 @@ bot = EchoBot()
 # bot = BattleBot()
 
 # Like BattleBot, but streams both responses at once.
-# bot = ConcurrentBattleBot()
+bot = ConcurrentBattleBot()
 
 # Optionally add your Poe API key here. You can go to https://poe.com/create_bot?api=1 to generate
 # one. We strongly recommend adding this key for a production bot to prevent abuse,
