@@ -99,7 +99,7 @@ class ConcurrentBattleBot(PoeBot):
                 continue
             elif isinstance(msg, Exception):
                 tb = '\n\n'.join(traceback.format_exception(msg))
-                label_to_responses[label] = [f"{label} ran into an error: {tb}"]
+                label_to_responses[label] = [f"{label} ran into an error:\n```{tb}```"]
             elif msg.is_suggested_reply:
                 yield self.suggested_reply_event(msg.text)
                 continue
