@@ -8,6 +8,7 @@ from __future__ import annotations
 import asyncio
 import re
 from collections import defaultdict
+import traceback
 from typing import AsyncIterable, AsyncIterator, Sequence
 
 from fastapi_poe import PoeBot, run
@@ -97,7 +98,7 @@ class ConcurrentBattleBot(PoeBot):
             if isinstance(msg, MetaMessage):
                 continue
             elif isinstance(msg, Exception):
-                label_to_responses[label] = [f"{label} ran into an error: {msg}"]
+                label_to_responses[label] = [f"{label} ran into an error: {traceback.format_exception(msg)}"]
             elif msg.is_suggested_reply:
                 yield self.suggested_reply_event(msg.text)
                 continue
